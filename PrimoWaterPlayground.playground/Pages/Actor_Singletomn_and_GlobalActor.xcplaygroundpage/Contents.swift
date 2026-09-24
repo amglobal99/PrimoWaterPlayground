@@ -17,13 +17,14 @@ actor LoggingManager {
     private init() {}
     
     func getSomething() {
-        //
+        print("this is a test")
     }
 }
 
 
 /// To use
-await LoggingManager.shared.getSomething()
+let myLogger = LoggingManager.shared
+await myLogger.getSomething()
 
 
 

@@ -5,49 +5,6 @@ import PlaygroundSupport
 
 
 
-struct Team {
-    
-    let id: Int = 11
-    var name: String = "test"
-    
-    
-    @concurrent
-    func updateName(newName: String) async -> Self {
-        var copy = self
-        copy.name = newName
-        return copy
-    }
-    
-}
-
-
-
-
-
-let miami = Team()
-
-
-
-let new = await miami.updateName(newName: "jelly")
-
-print(new)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 actor Counter {
     private var value: Int = 0
     
@@ -79,7 +36,7 @@ Task {
 }
 
 
-*/
+
 
 
 
