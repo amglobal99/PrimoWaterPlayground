@@ -3,14 +3,6 @@
 import Foundation
 
 
-
-
-
-
-
-
-
-
 /*
 
 //MARK: - Dictionary
@@ -54,7 +46,7 @@ let scoreTotal1 = scores.reduce(0) { result, score in
 print(scoreTotal1)
 
 
-/// convert arrasy to dictionary use first letter as key
+/// convert array to dictionary use first letter as key
 let dictByLetter: [Character: [String]] = array.reduce(into: [:]) { dictionary, element in
     let first = element.first!
     return dictionary[first, default: []].append(element)
@@ -111,7 +103,7 @@ print(new)
 //MARK: - ARRAYS
 
 /// create a new array in same order but removing the duplicates
-var arr = [7,11,4,7,12, 11,9,5]
+var arr = [7,11,4,7,12,11,9,5]
 
 func removeDuplicates(arr: [Int]) -> [Int] {
     var result: [Int] = []

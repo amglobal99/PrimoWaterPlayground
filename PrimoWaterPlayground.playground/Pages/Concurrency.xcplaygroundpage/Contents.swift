@@ -5,6 +5,111 @@ import PlaygroundSupport
 
 
 
+
+
+
+
+
+/*
+
+actor ImageDownloader {
+    // 1. This is isolated mutable state
+    var downloadCount = 0
+    
+    // 2. This method is forced OUTSIDE the actor's protection
+    nonisolated func printStatus() {
+        // ❌ COMPILER ERROR: Actor-isolated property 'downloadCount'
+        // cannot be referenced from a non-isolated context
+        print("Current downloads: \(downloadCount)")
+        
+        // ❌ COMPILER ERROR: Actor-isolated property 'downloadCount'
+        // cannot be mutated from a non-isolated context
+        downloadCount += 1
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// Above code Fixed
+
+actor ImageDownloader {
+    // 1. Immutable state (Safe to read from anywhere)
+    let maxConcurrentDownloads = 4
+    
+    // 2. Mutable state (Protected)
+    var downloadCount = 0
+    
+    // 3. Non-isolated method
+    nonisolated func printConfiguration() {
+        //  ALLOWED: Reading a 'let' constant is inherently thread-safe
+        print("Max allowed: \(maxConcurrentDownloads)")
+    }
+    
+    // 4. Non-isolated method using async/await
+    nonisolated func incrementAsync(downloader: ImageDownloader) async {
+        //  ALLOWED: Using 'await' safely hops back into the isolation domain
+        await downloader.incrementCount()
+    }
+    
+    func incrementCount() {
+        downloadCount += 1
+    }
+}
+
+
+*/
+
+
+
+
+
+
+
+/// Passing Unsafe data
+///
+/// // A normal class with mutable state. NOT thread-safe.
+class UserProfile {
+    var name: String = "Guest"
+}
+
+actor ProfileManager {
+    var activeProfile = UserProfile()
+
+    // 1. This function leaves the actor's safe thread zone
+    nonisolated func processProfile(profile: UserProfile) {
+        // 2. This code runs on the caller's unpredictable thread
+        print(profile.name)
+    }
+
+    func triggerProcess() {
+        // ❌ SWIFT 6 COMPILER ERROR:
+        // Passing argument of non-sendable type 'UserProfile' outside
+        // of actor-isolated context may introduce data races
+        processProfile(profile: activeProfile)
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
 actor Counter {
     private var value: Int = 0
     
@@ -36,7 +141,7 @@ Task {
 }
 
 
-
+*/
 
 
 

@@ -5,7 +5,7 @@ import Foundation
 
 //MARK: -  ************************* SENDABLE *******************
 
-
+/// To compile, you can convert clas to actor
 
 class User {
     var score = 0

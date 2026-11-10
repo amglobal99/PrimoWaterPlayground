@@ -101,7 +101,7 @@ print(arrSort)
 /// 4.
 //MARK: - TWO SUM
 /// From an array find the FIRSt 2 indexes of elements that add up to a given target number
-/// let's say given targte is    9
+/// let's say given target is    9
 /// we want the answer to be indexes ----> 1, 4
 
 var twoSum = [4, 2, 5, 1, 7, 3, 9, 10]
