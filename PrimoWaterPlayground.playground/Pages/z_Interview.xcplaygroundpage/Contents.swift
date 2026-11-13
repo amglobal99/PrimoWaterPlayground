@@ -301,36 +301,6 @@ intStack.pop()
 
 
 
-//MARK: - TWo SUm
-
-/*
-var arr = [3,7,11,8,11,4,7,12]
-
-
-func removeDuplictaes(_ arr: [Int]) -> [Int] {
-    var result: [Int] = []
-    var alreadySeen: [Int] = []
-    
-    for i in arr {
-        if !alreadySeen.contains(i) {
-            result.append(i)
-            
-        }
-        
-        alreadySeen.append(i)
-    }
-    
-    return result
-    
-}
-
-
-
-let ans = removeDuplictaes(arr)
-
-print(ans)
-
-*/
 
 
 

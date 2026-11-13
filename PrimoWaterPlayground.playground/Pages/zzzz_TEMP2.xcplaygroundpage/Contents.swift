@@ -27,35 +27,6 @@ var users = [User(id: 1, name: "Smith"),
              User(id: 4, name: "Pitt")
 ]
 
-var users1 = [User(id: 1, name: "Smith"),
-             User(id: 2, name: "Jenny"),
-             User(id: 3, name: "Jones"),
-             User(id: 4, name: "Smith"),
-             User(id: 5, name: "Pitt"),
-             User(id: 6, name: "Jones"),
-             User(id: 7, name: "Pitt")
-]
-
-
-
-
-
-/// 3.  Bubble Sort
-
-func sortBubble(array: inout [Int]) {
-    let count = array.count
-    for i in 0..<count {      //0, 1, 2, 3
-        for j in 0..<count-1-i {  // 0, 1, 2
-            if array[j] > array[j+1] {
-                array.swapAt(j,j+1)
-            }
-        }
-    }
-}
-
-var arrSort = [14, 4, 9, 2]
-sortBubble(array: &arrSort)
-print(arrSort)
 
 
 
